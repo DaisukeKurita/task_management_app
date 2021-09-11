@@ -5,8 +5,8 @@ password_digest, string
 
 Task  
 id, integer  
-title, string  
-content, text  
+task_name, string  
+task_detail, text  
 user_id, integer
 
 Label  
