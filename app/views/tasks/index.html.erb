@@ -8,6 +8,7 @@
   <tr>
     <td><%= task.task_name %></td>
     <td><%= task.task_detail %></td>
+    <td><%= link_to 'Delete', task_path(task.id), method: :delete %></td>
   </tr>
 <% end %>
 </table>

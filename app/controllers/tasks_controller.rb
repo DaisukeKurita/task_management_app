@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[ edit update ]
+  before_action :set_task, only: %i[ edit update destroy ]
   def index
     @tasks = Task.all
   end
@@ -22,6 +22,10 @@ class TasksController < ApplicationController
     else
       render :edit
     end
+  end
+  def destroy
+    @task.destroy
+    redirect_to tasks_path, notice: "Property was successfully destroyed."
   end
   private
   def set_task
