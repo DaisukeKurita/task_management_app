@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to tasks_path, notice: "Property was successfully created."
+      redirect_to tasks_path, notice: t('notice.Task was successfully created')
     else
       render :new
     end
@@ -20,14 +20,14 @@ class TasksController < ApplicationController
   end
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: "Property was successfully updated."
+      redirect_to tasks_path, notice: t('notice.Task was successfully updated')
     else
       render :edit
     end
   end
   def destroy
     @task.destroy
-    redirect_to tasks_path, notice: "Property was successfully destroyed."
+    redirect_to tasks_path, notice: t('notice.Task was successfully destroyed')
   end
   private
   def set_task

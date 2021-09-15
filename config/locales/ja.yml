@@ -219,3 +219,7 @@ ja:
     Return to task list screen: タスク一覧画面に戻る
     error: エラー
     prohibited this task from being saved: このタスクを禁止しました
+  notice:
+    Task was successfully created: タスクは正常に作成されました
+    Task was successfully updated: タスクは正常に更新されました
+    Task was successfully destroyed: タスクは正常に削除されました
