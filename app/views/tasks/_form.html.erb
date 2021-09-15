@@ -1,7 +1,7 @@
 <%= form_with(model: @task, local: true) do |form| %>
   <% if @task.errors.any? %>
     <div id="error_eeplanation">
-      <h2><%= pluralize(@task.errors.count, "error") %>prohibited this task from being saved:</h2>
+      <h2><%= @task.errors.count %><%= t('view.error') %> <%= t('view.prohibited this task from being saved') %></h2>
       <ul>
       <% @task.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -19,4 +19,4 @@
   </div>
   <%= form.submit %>
 <% end %>
-<%= link_to "Return to task list screen", tasks_path %>
+<%= link_to t('view.Return to task list screen'), tasks_path %>

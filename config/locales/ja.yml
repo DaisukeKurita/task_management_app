@@ -206,3 +206,16 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  view:
+    Tasks index: タスク一覧
+    Task name: タスク名
+    Task detail: タスク詳細
+    Show: 詳細
+    Edit: 編集
+    Delete: 削除
+    Create a new task: 新しくタスクを作成する
+    Create a task: タスクを作成する
+    Edit task: タスクの編集
+    Return to task list screen: タスク一覧画面に戻る
+    error: エラー
+    prohibited this task from being saved: このタスクを禁止しました
