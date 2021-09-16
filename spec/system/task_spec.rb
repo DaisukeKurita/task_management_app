@@ -4,8 +4,8 @@ describe 'タスク管理機能', type: :system do
     context 'タスクを新規作成した場合' do
       it '作成したタスクが表示される' do
         visit new_task_path
-        fill_in 'Task name', with: 'test_task_name'
-        fill_in 'Task detail', with: 'test_task_detail'
+        fill_in 'タスク名', with: 'test_task_name'
+        fill_in 'タスク詳細', with: 'test_task_detail'
       end
     end
   end
@@ -15,6 +15,15 @@ describe 'タスク管理機能', type: :system do
         FactoryBot.create(:task, task_name: 'task')
         visit tasks_path
         expect(page).to have_content 'task'
+      end
+    end
+    context 'タスクが作成日時の降順に並んでいる場合' do
+      it '新しいタスクが一番上に表示される' do
+        FactoryBot.create(:task)
+        FactoryBot.create(:second_task)
+        visit tasks_path
+        task_list = all('table tr td')[0]
+        expect(task_list).to have_content 'second'
       end
     end
   end
