@@ -1,7 +1,8 @@
 require 'rails_helper'
 describe 'タスク管理機能', type: :system do
   let!(:task) { FactoryBot.create(:task) }
-  let!(:task) { FactoryBot.create(:second_task) }
+  let!(:second_task) { FactoryBot.create(:second_task) }
+  let!(:third_task) { FactoryBot.create(:third_task) }
   before do
     visit tasks_path
   end
@@ -23,7 +24,7 @@ describe 'タスク管理機能', type: :system do
     context 'タスクが作成日時の降順に並んでいる場合' do
       it '新しいタスクが一番上に表示される' do
         task_list = all('table tr td')[0]
-        expect(task_list).to have_content 'second'
+        expect(task_list).to have_content 'third'
       end
     end
   end

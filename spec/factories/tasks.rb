@@ -7,4 +7,8 @@ FactoryBot.define do
     task_name { 'name_second' }
     task_detail { 'detail_second' }
   end
+  factory :third_task, class: Task do
+    task_name { 'name_third' }
+    task_detail { 'detail_third' }
+  end
 end
