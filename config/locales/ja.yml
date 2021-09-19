@@ -210,6 +210,7 @@ ja:
     Tasks index: タスク一覧
     Task name: タスク名
     Task detail: タスク詳細
+    expired_at: 終了期限
     Show: 詳細
     Edit: 編集
     Delete: 削除
