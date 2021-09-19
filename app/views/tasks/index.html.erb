@@ -3,12 +3,14 @@
   <tr>
     <th><%= t('view.Task name') %></th>
     <th><%= t('view.Task detail') %></th>
+    <th><%= "expired_at" %></th>
   </tr>
 
 <% @tasks.each do |task| %>
   <tr>
     <td><%= task.task_name %></td>
     <td><%= task.task_detail %></td>
+    <td><%= l task.expired_at, format: :long %></td>
     <td><%= link_to t('view.Show'), task_path(task.id) %></td>
     <td><%= link_to t('view.Edit'), edit_task_path(task.id) %></td>
     <td><%= link_to t('view.Delete'), task_path(task.id), method: :delete %></td>
