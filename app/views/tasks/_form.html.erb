@@ -17,6 +17,10 @@
     <%= form.label :task_detail %>
     <%= form.text_area :task_detail %>
   </div>
+  <div class="expired_at">
+    <%= form.label :expired_at %>
+    <%= form.datetime_field :expired_at %>
+  </div>
   <%= form.submit %>
 <% end %>
 <%= link_to t('view.Return to task list screen'), tasks_path %>
