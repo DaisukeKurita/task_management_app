@@ -13,6 +13,7 @@
 | id | integer |
 | task_detail | text |  
 | user_id | integer |
+| expired_at | datetime |
 
 | Taskテーブル ||
 | ---- | ---- |
