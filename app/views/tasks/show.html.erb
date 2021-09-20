@@ -7,4 +7,7 @@
 <strong><%= t('view.expired_at') %>:</strong>
 <%= l @task.expired_at, format: :long %>
 <br>
+<strong><%= t('view.status') %>:</strong>
+<%= @task.status %>
+<br>
 <%= link_to t('view.Return to task list screen'), tasks_path %>
