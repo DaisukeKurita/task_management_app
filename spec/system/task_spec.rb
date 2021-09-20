@@ -12,6 +12,7 @@ describe 'タスク管理機能', type: :system do
         visit new_task_path
         fill_in 'タスク名', with: 'test_task_name'
         fill_in 'タスク詳細', with: 'test_task_detail'
+        fill_in '終了期限', with: Time.new
       end
     end
   end
@@ -25,6 +26,13 @@ describe 'タスク管理機能', type: :system do
       it '新しいタスクが一番上に表示される' do
         task_list = all('table tr td')[0]
         expect(task_list).to have_content 'third'
+      end
+    end
+    context '終了期限でソートするというリンクを押した場合' do
+      it '終了期限の降順に並び替えられたタスクが一番上に表示される' do
+        visit tasks_path(sort_expired: "true")
+        task_list = all('table tr td')[0]
+        expect(task_list).to have_content 'second'
       end
     end
   end

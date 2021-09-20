@@ -12,6 +12,7 @@ class TasksController < ApplicationController
   end
   def create
     @task = Task.new(task_params)
+    binding.irb
     if @task.save
       redirect_to tasks_path, notice: t('notice.Task was successfully created')
     else
