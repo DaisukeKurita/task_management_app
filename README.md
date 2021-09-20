@@ -14,13 +14,7 @@
 | task_detail | text |  
 | user_id | integer |
 | expired_at | datetime |
-
-| Taskテーブル ||
-| ---- | ---- |
-| カラム名 | データ型 |
-| id | integer |
-| task_detail | text |  
-| user_id | integer |
+| status | string |
 
 | Labelテーブル ||
 | ---- | ---- |
