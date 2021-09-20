@@ -208,11 +208,12 @@ ja:
     pm: 午後
   view:
     Tasks index: タスク一覧
+    search: 検索
+    Sort by expiration date: 終了期限でソートする
     Task name: タスク名
     Task detail: タスク詳細
     expired_at: 終了期限
     status: ステータス
-    Sort by expiration date: 終了期限でソートする
     Show: 詳細
     Edit: 編集
     Delete: 削除

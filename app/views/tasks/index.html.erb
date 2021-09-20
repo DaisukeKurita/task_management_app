@@ -1,4 +1,11 @@
 <h1><%= t('view.Tasks index') %></h1>
+
+<%= form_with url: tasks_path, scope: :task, method: :get, local: true do |form| %>
+  <%= form.label :search, t('view.search') %>
+  <%= form.text_field :search %>
+  <%= form.submit 'Search' %>
+<% end %>
+
 <%= link_to t('view.Sort by expiration date'), tasks_path(sort_expired: "true") %>
 <table>
   <tr>
@@ -7,7 +14,6 @@
     <th><%= t('view.expired_at') %></th>
     <th><%= t('view.status') %></th>
   </tr>
-
 
 <% @tasks.each do |task| %>
   <tr>
