@@ -21,6 +21,9 @@
     <%= form.label :expired_at %>
     <%= form.datetime_field :expired_at %>
   </div>
+  <div class="status">
+    <%= form.select :status, [[t('view.Not started yet'), 'Not started yet'], [t('view.Under start'), 'Under start'], [t('view.Completion'), 'Completion'] ] %>
+  </div>
   <%= form.submit %>
 <% end %>
 <%= link_to t('view.Return to task list screen'), tasks_path %>

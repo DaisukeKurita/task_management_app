@@ -12,7 +12,6 @@ class TasksController < ApplicationController
   end
   def create
     @task = Task.new(task_params)
-    binding.irb
     if @task.save
       redirect_to tasks_path, notice: t('notice.Task was successfully created')
     else
@@ -39,6 +38,6 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
   def task_params
-    params.require(:task).permit(:task_name, :task_detail, :expired_at)
+    params.require(:task).permit(:task_name, :task_detail, :expired_at, :status)
   end
 end
