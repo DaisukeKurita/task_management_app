@@ -22,7 +22,7 @@
     <%= form.datetime_field :expired_at %>
   </div>
   <div class="status">
-    <%= form.select :status, [[t('view.Not started yet'), '未着手'], [t('view.Under start'), '着手中'], [t('view.Completion'), '完了'] ] %>
+    <%= form.select :status, Task.statuses.keys %>
   </div>
   <%= form.submit %>
 <% end %>
