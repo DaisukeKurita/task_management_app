@@ -14,7 +14,7 @@
 | task_detail | text |  
 | user_id | integer |
 | expired_at | datetime |
-| status | string |
+| status | integer |
 
 | Labelテーブル ||
 | ---- | ---- |
