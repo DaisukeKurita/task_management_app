@@ -11,7 +11,7 @@ class TasksController < ApplicationController
       elsif params[:task][:status].present?
         @tasks = Task.where(status: params[:task][:status])
       else
-        @tasks = Task.all
+        @tasks = Task.all.order(created_at: :desc)
       end
     else
       @tasks = Task.all.order(created_at: :desc)
