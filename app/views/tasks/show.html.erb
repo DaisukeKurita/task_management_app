@@ -8,6 +8,6 @@
 <%= l @task.expired_at, format: :long %>
 <br>
 <strong><%= t('view.status') %>:</strong>
-<%= @task.status %>
+<%= @task.status_i18n %>
 <br>
 <%= link_to t('view.Return to task list screen'), tasks_path %>

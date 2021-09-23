@@ -22,7 +22,7 @@
     <%= form.datetime_field :expired_at %>
   </div>
   <div class="status">
-    <%= form.select :status, Task.statuses.keys %>
+    <%= form.select :status, Task.statuses_i18n.keys.map{|k| [I18n.t("enums.task.status.#{k}"), k]} %>
   </div>
   <%= form.submit %>
 <% end %>

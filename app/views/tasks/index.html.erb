@@ -20,7 +20,7 @@
     <td><%= task.task_name %></td>
     <td><%= task.task_detail %></td>
     <td><%= l task.expired_at, format: :long %></td>
-    <td><%= task.status %></td>
+    <td><%= task.status_i18n %></td>
     <td><%= link_to t('view.Show'), task_path(task.id) %></td>
     <td><%= link_to t('view.Edit'), edit_task_path(task.id) %></td>
     <td><%= link_to t('view.Delete'), task_path(task.id), method: :delete %></td>

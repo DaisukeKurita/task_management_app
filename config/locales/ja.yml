@@ -219,9 +219,6 @@ ja:
     Delete: 削除
     Create a new task: 新しくタスクを作成する
     Create a task: タスクを作成する
-    Not started yet: 未着手
-    Under start: 着手中
-    Completion: 完了
     Edit task: タスクの編集
     Return to task list screen: タスク一覧画面に戻る
     error: エラー
@@ -230,3 +227,9 @@ ja:
     Task was successfully created: タスクは正常に作成されました
     Task was successfully updated: タスクは正常に更新されました
     Task was successfully destroyed: タスクは正常に削除されました
+  enums:
+    task:
+      status:
+        not_started_yet: 未着手
+        under_start: 着手中
+        completion: 完了
