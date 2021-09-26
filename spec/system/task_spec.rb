@@ -1,23 +1,25 @@
 require 'rails_helper'
 describe 'タスク管理機能', type: :system do
-  let!(:task) { FactoryBot.create(:task) }
-  let!(:second_task) { FactoryBot.create(:second_task) }
-  let!(:third_task) { FactoryBot.create(:third_task) }
-  let!(:four_task) { FactoryBot.create(:four_task) }
-  let!(:five_task) { FactoryBot.create(:five_task) }
 
   before do
+    FactoryBot.create(:task)
+    FactoryBot.create(:second_task)
+    FactoryBot.create(:third_task)
+    FactoryBot.create(:four_task)
+    FactoryBot.create(:five_task)
     visit tasks_path
   end
 
   describe '新規作成機能' do
     context 'タスクを新規作成した場合' do
       it '作成したタスクが表示される' do
-        visit new_task_path
+        click_link '新しくタスクを作成する'
         fill_in 'タスク名', with: 'test_task_name'
         fill_in 'タスク詳細', with: 'test_task_detail'
         fill_in '終了期限', with: Time.new
         select '完了'
+        click_button '登録する'
+        expect(page).to have_content 'test_task_name'
       end
     end
   end
@@ -46,8 +48,8 @@ describe 'タスク管理機能', type: :system do
   describe '詳細表示機能' do
      context '任意のタスク詳細画面に遷移した場合' do
        it '該当タスクの内容が表示される' do
-         visit task_path(task.id)
-         expect(page).to have_content 'name'
+         click_link '詳細', match: :first
+         expect(page).to have_content 'five'
        end
      end
   end
