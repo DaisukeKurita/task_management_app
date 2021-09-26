@@ -15,6 +15,7 @@
 | user_id | integer |
 | expired_at | datetime |
 | status | integer |
+| priority | integer |
 
 | Labelテーブル ||
 | ---- | ---- |
