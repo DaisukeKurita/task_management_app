@@ -214,6 +214,7 @@ ja:
     Task detail: タスク詳細
     expired_at: 終了期限
     status: ステータス
+    priority: 優先順位
     Show: 詳細
     Edit: 編集
     Delete: 削除
@@ -233,3 +234,7 @@ ja:
         not_started_yet: 未着手
         under_start: 着手中
         completion: 完了
+      priority:
+        high: 高
+        medium: 中
+        low: 低

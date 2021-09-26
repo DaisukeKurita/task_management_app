@@ -10,4 +10,7 @@
 <strong><%= t('view.status') %>:</strong>
 <%= @task.status_i18n %>
 <br>
+<strong><%= t('view.priority') %>:</strong>
+<%= @task.priority_i18n %>
+<br>
 <%= link_to t('view.Return to task list screen'), tasks_path %>
