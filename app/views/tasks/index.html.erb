@@ -8,6 +8,7 @@
 <% end %>
 
 <%= link_to t('view.Sort by expiration date'), tasks_path(sort_expired: "true") %>
+<%= link_to t('view.priority'), tasks_path(sort_priority: "true") %>
 <table>
   <tr>
     <th><%= t('view.Task name') %></th>
