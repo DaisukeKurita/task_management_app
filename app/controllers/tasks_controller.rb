@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   def index
     if params[:sort_expired]
       @tasks = Task.end_deadline_descending
-    elsif [:sort_priority]
+    elsif params[:sort_priority]
       @tasks = Task.highest_priority
     elsif params[:task].present?
       if params[:task][:search].present? && params[:task][:status].present?

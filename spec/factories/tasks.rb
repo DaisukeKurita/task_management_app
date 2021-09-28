@@ -4,6 +4,7 @@ FactoryBot.define do
     task_detail { 'detail' }
     expired_at { '2021-09-23 17:06:00' }
     status { 'not_started_yet' }
+    priority { 'medium' }
   end
 
   factory :second_task, class: Task do
@@ -11,6 +12,7 @@ FactoryBot.define do
     task_detail { 'detail_second' }
     expired_at { '2021-09-26 17:06:00' }
     status { 'under_start' }
+    priority { 'low' }
   end
 
   factory :third_task, class: Task do
@@ -18,6 +20,7 @@ FactoryBot.define do
     task_detail { 'detail_third' }
     expired_at { '2021-09-25 17:06:00' }
     status { 'completion' }
+    priority { 'high' }
   end
 
   factory :four_task, class: Task do
@@ -25,6 +28,7 @@ FactoryBot.define do
     task_detail { 'detail_four' }
     expired_at { '2021-12-15 17:06:00' }
     status { 'not_started_yet' }
+    priority { 'medium' }
   end
 
   factory :five_task, class: Task do
@@ -32,5 +36,6 @@ FactoryBot.define do
     task_detail { 'detail_five' }
     expired_at { '2021-11-25 17:06:00' }
     status { 'under_start' }
+    priority { 'low' }
   end
 end

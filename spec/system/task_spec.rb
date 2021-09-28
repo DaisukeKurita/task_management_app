@@ -18,6 +18,7 @@ describe 'タスク管理機能', type: :system do
         fill_in 'タスク詳細', with: 'test_task_detail'
         fill_in '終了期限', with: Time.new
         select '完了'
+        select '中'
         click_button '登録する'
         expect(page).to have_content 'test_task_name'
       end
@@ -38,9 +39,16 @@ describe 'タスク管理機能', type: :system do
     end
     context '終了期限でソートするというリンクを押した場合' do
       it '終了期限の降順に並び替えられたタスクが一番上に表示される' do
-        visit tasks_path(sort_expired: "true")
+        click_link '終了期限でソートする'
         task_list = all('table tr td')[0]
         expect(task_list).to have_content 'name_four'
+      end
+    end
+    context '優先順位というリンクを押した場合' do
+      it '終了期限の降順に並び替えられたタスクが一番上に表示される' do
+        click_link '優先順位'
+        task_list = all('table tr td')[0]
+        expect(task_list).to have_content 'name_third'
       end
     end
   end
