@@ -17,7 +17,7 @@ class Task < ApplicationRecord
 
     scope :creation_date_descending, -> {order(created_at: :desc)}
     scope :end_deadline_descending, -> {order(expired_at: :desc)}
-    scope :highest_priority, -> {order(priority: :asc)} 
+    scope :highest_priority, -> {order(priority: :asc)}
     scope :search_task_name, ->(params) { where('task_name LIKE ?', "%#{params}%")}
     scope :search_status, ->(params) { where(status: "#{params}")}
 end
