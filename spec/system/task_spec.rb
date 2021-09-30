@@ -39,7 +39,7 @@ describe 'タスク管理機能', type: :system do
     end
     context '終了期限でソートするというリンクを押した場合' do
       it '終了期限の降順に並び替えられたタスクが一番上に表示される' do
-        click_link '終了期限でソートする'
+        click_link '終了期限'
         task_list = all('table tr td')[0]
         expect(task_list).to have_content 'name_four'
       end
@@ -66,21 +66,21 @@ describe 'タスク管理機能', type: :system do
     context 'タイトルであいまい検索をした場合' do
       it "検索キーワードを含むタスクで絞り込まれる" do
         fill_in '検索', with: 'four'
-        click_button 'Search'
+        click_button '検索'
         expect(page).to have_content 'name_four'
       end
     end
     context 'ステータス検索をした場合' do
       it "ステータスに完全一致するタスクが絞り込まれる" do
         select '着手中'
-        click_button 'Search'
+        click_button '検索'
         expect(page).to have_content 'name_second'
       end
     end
     context 'タイトルのあいまい検索とステータス検索をした場合' do
       it "検索キーワードをタイトルに含み、かつステータスに完全一致するタスク絞り込まれる" do
         fill_in '検索', with: 'five'
-        click_button 'Search'
+        click_button '検索'
         expect(page).to have_content 'name_five'
       end
     end
