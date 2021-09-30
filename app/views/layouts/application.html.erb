@@ -11,10 +11,17 @@
 
   <body>
     <header>
+      <ul>
+        <li><%= link_to t('view.Create a new task'), new_task_path %></li>
+        <li><%= link_to t('view.Return to task list screen'), tasks_path %></li>
+      </ul>
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "#{key}") %>
       <% end %>
     </header>
     <%= yield %>
+    <footer>
+      <p>タスク管理で仕事の生産性がアップするよ</p>
+    </footer>
   </body>
 </html>

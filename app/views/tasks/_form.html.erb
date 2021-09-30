@@ -11,12 +11,26 @@
   <% end %>
   <div class="task_name">
     <%= form.label :task_name %>
-    <%= form.text_field :task_name %>
+    <%= form.text_field :task_name, class: 'form-control' %>
   </div>
   <div class="task_detail">
     <%= form.label :task_detail %>
-    <%= form.text_area :task_detail %>
+    <%= form.text_area :task_detail, class: 'form-control' %>
   </div>
-  <%= form.submit %>
+  <div class="expired_at">
+    <%= form.label :expired_at %>
+    <%= form.datetime_field :expired_at, class: 'form-control' %>
+  </div>
+  <br>
+  <div class="status">
+    <%= form.label :status %>
+    <%= form.select :status, Task.statuses_i18n.keys.map{|k| [I18n.t("enums.task.status.#{k}"), k]} %>
+  </div>
+  <br>
+  <div class="priority">
+    <%= form.label :priority %>
+    <%= form.select :priority, Task.priorities_i18n.keys.map{|k| [I18n.t("enums.task.priority.#{k}"), k]} %>
+  </div>
+  <br>
+  <%= form.submit class: 'bun btn-primary'%>
 <% end %>
-<%= link_to t('view.Return to task list screen'), tasks_path %>

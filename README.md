@@ -1,26 +1,35 @@
-##### テーブルスキーマ（案）  
-```
-User  
-id, integer  
-name, string  
-password_digest, string
+#### テーブルスキーマ（案）  
 
-Task  
-id, integer  
-task_name, string  
-task_detail, text  
-user_id, integer
+| Userテーブル ||
+| ---- | ---- |
+| カラム名 | データ型 |
+| id | integer |
+| name | string |  
+| password_digest | string |
 
-Label  
-id, integer  
-label_name, string  
-task_id, integer
+| Taskテーブル ||
+| ---- | ---- |
+| カラム名 | データ型 |
+| id | integer |
+| task_detail | text |  
+| user_id | integer |
+| expired_at | datetime |
+| status | integer |
+| priority | integer |
 
-Task_label  
-id, integer  
-task_id, integer  
-label_id, integer
-```
+| Labelテーブル ||
+| ---- | ---- |
+| カラム名 | データ型 |
+| id | integer |
+| label_name | string |  
+| task_id | integer |
+
+| Task_labelテーブル ||
+| ---- | ---- |
+| カラム名 | データ型 |
+| id | integer |
+| task_id | integer |  
+| label_id | integer |
 
 ##### Herokuへのデプロイの手順
 

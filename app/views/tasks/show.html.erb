@@ -1,7 +1,26 @@
-<strong><%= t('view.Task name') %>:</strong>
-<%= @task.task_name %>
-<br>
-<strong><%= t('view.Task detail') %>:</strong>
-<%= @task.task_detail %>
-<br>
-<%= link_to t('view.Return to task list screen'), tasks_path %>
+<main>
+  <table>
+    <tr>
+      <th><%= t('view.Task name') %>:</th>
+      <td><%= @task.task_name %></td>
+    </tr>
+    <tr>
+      <th><%= t('view.Task detail') %>:</th>
+      <td><%= @task.task_detail %></td>
+    </tr>
+    <tr>
+      <th><%= t('view.expired_at') %>:</th>
+      <td><%= l @task.expired_at, format: :long %></td>
+    </tr>
+    <tr>
+      <th><%= t('view.status') %>:</th>
+      <td><%= @task.status_i18n %></td>
+    </tr>
+    <tr>
+      <th><%= t('view.priority') %>:</th>
+      <td><%= @task.priority_i18n %></td>
+    </tr>
+  </table>
+  <br>
+  <%= link_to t('view.Return to task list screen'), tasks_path %>
+</main>
