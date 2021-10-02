@@ -214,7 +214,7 @@ ja:
     Task name: タスク名
     Task detail: タスク詳細
     Search: 検索
-    Sign up: 新規登録 
+    Sign up: 新規登録
     expired_at: 終了期限
     status: ステータス
     priority: 優先順位
@@ -225,12 +225,15 @@ ja:
     Create a task: タスクを作成する
     Edit task: タスクの編集
     Return to task list screen: タスク一覧画面に戻る
-    error: エラー
+    error: 件のエラー
     prohibited this task from being saved: このタスクを禁止しました
+    prohibited this user from being saved: のユーザー登録を禁止しました
+    Create my account: アカウントを作成する
   notice:
     Task was successfully created: タスクは正常に作成されました
     Task was successfully updated: タスクは正常に更新されました
     Task was successfully destroyed: タスクは正常に削除されました
+    User was successfully created: ユーザは正常に作成されました
   enums:
     task:
       status:

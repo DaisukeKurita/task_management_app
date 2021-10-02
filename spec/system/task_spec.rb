@@ -39,14 +39,18 @@ describe 'タスク管理機能', type: :system do
     end
     context '終了期限でソートするというリンクを押した場合' do
       it '終了期限の降順に並び替えられたタスクが一番上に表示される' do
+        sleep 0.5
         click_link '終了期限'
+        sleep 0.5
         task_list = all('table tr td')[0]
         expect(task_list).to have_content 'name_four'
       end
     end
     context '優先順位というリンクを押した場合' do
       it '終了期限の降順に並び替えられたタスクが一番上に表示される' do
+        sleep 0.5
         click_link '優先順位'
+        sleep 0.5
         task_list = all('table tr td')[0]
         expect(task_list).to have_content 'name_third'
       end

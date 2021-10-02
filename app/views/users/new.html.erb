@@ -1,0 +1,32 @@
+<h1><%= t('view.Sign up') %></h1>
+
+<%= form_with( model: @user, local:true ) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explantion">
+      <h2><%= @user.errors.count %><%= t('view.error') %><%= @user.user_name %><%= t('view.prohibited this user from being saved') %></h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="user_name">
+    <%= f.label :user_name %>
+    <%= f.text_field :user_name %>
+  </div>
+  <div class="user_email">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="user_password">
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  </div>
+  <div class="user_confirmation">
+    <%= f.label :password_confirmation %>
+    <%= f.text_field :password_confirmation %>
+  </div>
+  <%= f.submit t('view.Create my account') %>
+<% end %>
