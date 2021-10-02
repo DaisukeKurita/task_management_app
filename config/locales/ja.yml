@@ -242,6 +242,7 @@ ja:
     Task was successfully destroyed: タスクは正常に削除されました
     User was successfully created: ユーザーは正常に作成されました
     Failed to login: ログインに失敗しました
+    Logged out: ログアウトしました
   enums:
     task:
       status:
