@@ -231,12 +231,17 @@ ja:
     email: メールアドレス
     prohibited this user from being saved: ユーザー登録を禁止しました
     Create my account: アカウントを作成する
+    To login screen: ログイン画面へ
     To new user registration screen: ユーザーの新規登録画面へ
+    Log in: ログイン
+    Email: メールアドレス
+    Password: パスワード
   notice:
     Task was successfully created: タスクは正常に作成されました
     Task was successfully updated: タスクは正常に更新されました
     Task was successfully destroyed: タスクは正常に削除されました
     User was successfully created: ユーザーは正常に作成されました
+    Failed to login: ログインに失敗しました
   enums:
     task:
       status:

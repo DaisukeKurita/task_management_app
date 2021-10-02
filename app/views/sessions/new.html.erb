@@ -1,0 +1,15 @@
+<h1><%= t('view.Log in')%></h1>
+
+<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+  <div class="user_email">
+    <%= f.label :email, t('view.Email') %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="user_password">
+    <%= f.label :password, t('view.Password') %>
+    <%= f.text_field :password %>
+  </div>
+  <%= f.submit t('view.Log in') %>
+<% end %>
+
+<%= link_to t('view.To new user registration screen'), new_user_path %>

@@ -1,38 +1,36 @@
-<main>
-  <h1><%= t('view.Tasks index') %></h1>
+<h1><%= t('view.Tasks index') %></h1>
 
-  <%= form_with url: tasks_path, scope: :task, method: :get, local: true do |form| %>
-      <%= form.label :search, t('view.Task name search') %>
-      <%= form.text_field :search %>
-      <%= form.label :status, t('view.Status search') %>
-      <%= form.select :status, Task.statuses_i18n.keys.map{|k| [I18n.t("enums.task.status.#{k}"), k]}, {include_blank: true} %>
-      <%= form.submit t('view.Search') %>
-  <% end %>
-  <br>
-  <%= link_to t('view.Sign up'), new_task_path, class: 'btn btn-primary' %>
-  <br><br>
-  <table>
-    <tr>
-      <th><%= t('view.Task name') %></th>
-      <th><%= t('view.Task detail') %></th>
-      <th><%= link_to t('view.expired_at'), tasks_path(sort_expired: "true") %></th>
-      <th><%= t('view.status') %></th>
-      <th><%= link_to t('view.priority'), tasks_path(sort_priority: "true") %></th>
-    </tr>
+<%= form_with url: tasks_path, scope: :task, method: :get, local: true do |form| %>
+    <%= form.label :search, t('view.Task name search') %>
+    <%= form.text_field :search %>
+    <%= form.label :status, t('view.Status search') %>
+    <%= form.select :status, Task.statuses_i18n.keys.map{|k| [I18n.t("enums.task.status.#{k}"), k]}, {include_blank: true} %>
+    <%= form.submit t('view.Search') %>
+<% end %>
+<br>
+<%= link_to t('view.Sign up'), new_task_path, class: 'btn btn-primary' %>
+<br><br>
+<table>
+  <tr>
+    <th><%= t('view.Task name') %></th>
+    <th><%= t('view.Task detail') %></th>
+    <th><%= link_to t('view.expired_at'), tasks_path(sort_expired: "true") %></th>
+    <th><%= t('view.status') %></th>
+    <th><%= link_to t('view.priority'), tasks_path(sort_priority: "true") %></th>
+  </tr>
 
-  <% @tasks.each do |task| %>
-    <tr>
-      <td><%= task.task_name %></td>
-      <td><%= task.task_detail %></td>
-      <td><%= l task.expired_at, format: :long %></td>
-      <td><%= task.status_i18n %></td>
-      <td><%= task.priority_i18n %></td>
-      <td><%= link_to t('view.Show'), task_path(task.id), class: 'btn btn-primary' %></td>
-      <td><%= link_to t('view.Edit'), edit_task_path(task.id), class: 'btn btn-success' %></td>
-      <td><%= link_to t('view.Delete'), task_path(task.id), method: :delete, class: 'btn btn-danger' %></td>
-    </tr>
-  <% end %>
-  </table>
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.task_name %></td>
+    <td><%= task.task_detail %></td>
+    <td><%= l task.expired_at, format: :long %></td>
+    <td><%= task.status_i18n %></td>
+    <td><%= task.priority_i18n %></td>
+    <td><%= link_to t('view.Show'), task_path(task.id), class: 'btn btn-primary' %></td>
+    <td><%= link_to t('view.Edit'), edit_task_path(task.id), class: 'btn btn-success' %></td>
+    <td><%= link_to t('view.Delete'), task_path(task.id), method: :delete, class: 'btn btn-danger' %></td>
+  </tr>
+<% end %>
+</table>
 
-  <%= paginate @tasks %>
-</main>
+<%= paginate @tasks %>

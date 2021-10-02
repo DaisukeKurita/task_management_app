@@ -19,7 +19,9 @@
         <%= content_tag(:div, value, class: "#{key}") %>
       <% end %>
     </header>
-    <%= yield %>
+      <main>
+        <%= yield %>
+      </main>
     <footer>
       <p>タスク管理で仕事の生産性がアップするよ</p>
     </footer>
