@@ -15,13 +15,13 @@
       <ul>
         <li><%= link_to "Profile", user_path(current_user.id) %></li>
         <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+        <li><%= link_to t('view.Create a new task'), new_task_path %></li>
+        <li><%= link_to t('view.Return to task list screen'), tasks_path %></li>
       </ul>
       <% else %>
       <ul>
         <li><%= link_to "Sign up", new_user_path %></li>
         <li><%= link_to "Login", new_session_path %></li>
-        <li><%= link_to t('view.Create a new task'), new_task_path %></li>
-        <li><%= link_to t('view.Return to task list screen'), tasks_path %></li>
       </ul>
       <% end %>
       <% flash.each do |key, value| %>
@@ -32,7 +32,7 @@
         <%= yield %>
       </main>
     <footer>
-      <p>タスク管理で仕事の生産性がアップするよ</p>
+      <p><%= t('view.Task management will increase your work productivity') %></p>
     </footer>
   </body>
 </html>

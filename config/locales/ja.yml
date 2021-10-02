@@ -207,6 +207,7 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   view:
+    Task management will increase your work productivity: タスク管理で仕事の生産性がアップするよ
     Tasks index: タスク一覧
     Task name search: タスク名検索
     Status search: ステータス検索

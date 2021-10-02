@@ -3,6 +3,7 @@ class Task < ApplicationRecord
   validates :task_detail, presence: true, length: { maximum: 255 }
   validates :status, presence: true
   validates :priority, presence: true
+  belongs_to :user
 
   enum status: {
     not_started_yet: 0,

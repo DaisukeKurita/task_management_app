@@ -26,7 +26,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.new(task_params)
     if @task.save
       redirect_to tasks_path, notice: t('notice.Task was successfully created')
     else
@@ -58,6 +58,6 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
   def task_params
-    params.require(:task).permit(:task_name, :task_detail, :expired_at, :status, :priority)
+    params.require(:task).permit(:task_name, :task_detail, :expired_at, :status, :priority).merge(user_id: current_user.id)
   end
 end
