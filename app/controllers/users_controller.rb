@@ -28,6 +28,10 @@ class UsersController < ApplicationController
     redirect_to tasks_path unless @user.id == current_user.id
   end
 
+  def index
+    @users = User.all
+  end
+
   private
   def user_params
     params.require(:user).permit(:user_name, :email, :password,:password_confirmation)

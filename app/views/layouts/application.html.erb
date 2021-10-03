@@ -17,6 +17,7 @@
         <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
         <li><%= link_to t('view.Create a new task'), new_task_path %></li>
         <li><%= link_to t('view.Return to task list screen'), tasks_path %></li>
+        <li><%= link_to t('view.To user list screen'), users_path %></li>
       </ul>
       <% else %>
       <ul>

@@ -226,7 +226,7 @@ ja:
     Create a new task: 新しくタスクを作成する
     Create a task: タスクを作成する
     Edit task: タスクの編集
-    Return to task list screen: タスク一覧画面に戻る
+    Return to task list screen: タスク一覧画面へ
     error: 件のエラー
     prohibited this task from being saved: このタスクを禁止しました
     page of: のページ
@@ -235,9 +235,13 @@ ja:
     Create my account: アカウントを作成する
     To login screen: ログイン画面へ
     To new user registration screen: ユーザーの新規登録画面へ
+    To user list screen: ユーザー一覧画面へ
     Log in: ログイン
     Email: メールアドレス
     Password: パスワード
+    User list: ユーザー一覧
+    User name: ユーザー名
+    Number of user tasks: ユーザータスク数
   notice:
     Task was successfully created: タスクは正常に作成されました
     Task was successfully updated: タスクは正常に更新されました
