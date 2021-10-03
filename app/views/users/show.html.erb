@@ -5,11 +5,13 @@
   <tr>
     <th><%= t('view.Task name') %></th>
     <th><%= t('view.Task detail') %></th>
+    <th><%= t('view.Task creator') %></th>
   </tr>
-  <% @user.tasks.each do |user| %>
+  <% @user.tasks.each do |user_task| %>
     <tr>
-      <td><%= user.task_name %></td>
-      <td><%= user.task_detail %></td>
+      <td><%= user_task.task_name %></td>
+      <td><%= user_task.task_detail %></td>
+      <td><%= user_task.user.user_name %></td>
     </tr>
   <% end %>
 </table>
