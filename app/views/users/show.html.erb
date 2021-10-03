@@ -1,4 +1,17 @@
 <h2><%= @user.user_name %><%= t('view.page of')%></h2>
 <p><%= t('view.email')%>:<%= @user.email %></p>
 
+<table>
+  <tr>
+    <th><%= t('view.Task name') %></th>
+    <th><%= t('view.Task detail') %></th>
+  </tr>
+  <% @user.tasks.each do |user| %>
+    <tr>
+      <td><%= user.task_name %></td>
+      <td><%= user.task_detail %></td>
+    </tr>
+  <% end %>
+</table>
+
 <%= link_to t('view.To new user registration screen'), new_user_path %>
