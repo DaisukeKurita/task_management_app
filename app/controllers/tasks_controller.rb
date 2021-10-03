@@ -3,21 +3,21 @@ class TasksController < ApplicationController
 
   def index
     if params[:sort_expired]
-      @tasks = Task.end_deadline_descending.page(params[:page]).per(5)
+      @tasks = current_user.tasks.end_deadline_descending.page(params[:page]).per(5)
     elsif params[:sort_priority]
-      @tasks = Task.highest_priority.page(params[:page]).per(5)
+      @tasks = current_user.tasks.highest_priority.page(params[:page]).per(5)
     elsif params[:task].present?
       if params[:task][:search].present? && params[:task][:status].present?
-        @tasks = Task.search_task_name(params[:task][:search]).search_status(params[:task][:status]).page(params[:page]).per(5)
+        @tasks = current_user.tasks.search_task_name(params[:task][:search]).search_status(params[:task][:status]).page(params[:page]).per(5)
       elsif params[:task][:search].present?
-        @tasks = Task.search_task_name(params[:task][:search]).page(params[:page]).per(5)
+        @tasks = current_user.tasks.search_task_name(params[:task][:search]).page(params[:page]).per(5)
       elsif params[:task][:status].present?
-        @tasks = Task.search_status(params[:task][:status]).page(params[:page]).per(5)
+        @tasks = current_user.tasks.search_status(params[:task][:status]).page(params[:page]).per(5)
       else
-        @tasks = Task.creation_date_descending.page(params[:page]).per(5)
+        @tasks = current_user.tasks.creation_date_descending.page(params[:page]).per(5)
       end
     else
-      @tasks = Task.creation_date_descending.page(params[:page]).per(5)
+      @tasks = current_user.tasks.creation_date_descending.page(params[:page]).per(5)
     end
   end
 
@@ -55,9 +55,9 @@ class TasksController < ApplicationController
 
   private
   def set_task
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
-  
+
   def task_params
     params.require(:task).permit(:task_name, :task_detail, :expired_at, :status, :priority, :user_id)
   end

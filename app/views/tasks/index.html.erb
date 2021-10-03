@@ -19,20 +19,19 @@
     <th><%= link_to t('view.priority'), tasks_path(sort_priority: "true") %></th>
     <th><%= t('view.Task creator') %></th>
   </tr>
-
-<% @tasks.each do |task| %>
-  <tr>
-    <td><%= task.task_name %></td>
-    <td><%= task.task_detail %></td>
-    <td><%= l task.expired_at, format: :long %></td>
-    <td><%= task.status_i18n %></td>
-    <td><%= task.priority_i18n %></td>
-    <td><%= task.user.user_name %></td>
-    <td><%= link_to t('view.Show'), task_path(task.id), class: 'btn btn-primary' %></td>
-    <td><%= link_to t('view.Edit'), edit_task_path(task.id), class: 'btn btn-success' %></td>
-    <td><%= link_to t('view.Delete'), task_path(task.id), method: :delete, class: 'btn btn-danger' %></td>
-  </tr>
-<% end %>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.task_name %></td>
+      <td><%= task.task_detail %></td>
+      <td><%= l task.expired_at, format: :long %></td>
+      <td><%= task.status_i18n %></td>
+      <td><%= task.priority_i18n %></td>
+      <td><%= task.user.user_name %></td>
+      <td><%= link_to t('view.Show'), task_path(task.id), class: 'btn btn-primary' %></td>
+      <td><%= link_to t('view.Edit'), edit_task_path(task.id), class: 'btn btn-success' %></td>
+      <td><%= link_to t('view.Delete'), task_path(task.id), method: :delete, class: 'btn btn-danger' %></td>
+    </tr>
+  <% end %>
 </table>
 
 <%= paginate @tasks %>
