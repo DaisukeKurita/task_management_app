@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_10_02_160731) do
     t.datetime "expired_at", default: -> { "now()" }, null: false
     t.integer "status", default: 0, null: false
     t.integer "priority", default: 0, null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.index ["task_name"], name: "index_tasks_on_task_name"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
