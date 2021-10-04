@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: %i[ new create ]
+  before_action :set_user, only: %i[ show destroy ]
 
   def new
     if logged_in?
@@ -24,7 +25,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     redirect_to tasks_path unless @user.id == current_user.id
   end
 
@@ -32,7 +32,16 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def destroy
+    @user.destroy
+    redirect_to  new_session_path
+  end
+
   private
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:user_name, :email, :password,:password_confirmation)
   end
