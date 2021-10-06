@@ -6,12 +6,14 @@
     <th><%= t('view.Task name') %></th>
     <th><%= t('view.Task detail') %></th>
     <th><%= t('view.Task creator') %></th>
+    <th><%= t('view.admin') %></th>
   </tr>
   <% @user.tasks.each do |user_task| %>
     <tr>
       <td><%= user_task.task_name %></td>
       <td><%= user_task.task_detail %></td>
       <td><%= user_task.user.user_name %></td>
+      <td><%= user_task.user.admin %></td>
     </tr>
   <% end %>
 </table>

@@ -13,5 +13,6 @@ ja:
       user:
         user_name: ユーザー名
         email: メールアドレス
+        admin: 管理者権限
         password: パスワード
         password_confirmation: パスワード確認
