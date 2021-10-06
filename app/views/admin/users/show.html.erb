@@ -1,5 +1,5 @@
-<h2><%= @user.user_name %><%= t('view.page of')%></h2>
-<p><%= t('view.email')%>:<%= @user.email %></p>
+<h2><%= t('view.page of', name: @user.user_name) %></h2>
+<p><%= t('view.email', email: @user.email) %></p>
 
 <table>
   <tr>

@@ -232,8 +232,8 @@ ja:
     error: 件のエラー
     prohibited this task from being saved: このタスクを禁止しました
     prohibited this task from being saved: このタスクを禁止しました
-    page of: のページ
-    email: メールアドレス
+    page of: "%{name}のページ"
+    email: "メールアドレス:%{email}"
     prohibited this user from being saved: ユーザー登録を禁止しました
     Create my account: アカウントを作成する
     To login screen: ログイン画面へ
@@ -250,8 +250,9 @@ ja:
     Task was successfully created: タスクは正常に作成されました
     Task was successfully updated: タスクは正常に更新されました
     Task was successfully destroyed: タスクは正常に削除されました
-    User was successfully created: ユーザーは正常に作成されました
-    User was successfully destroyed: ユーザーは正常に作成されました
+    User was successfully created: "%{name}ユーザーは正常に作成されました"
+    User was successfully updated: "%{name}ユーザーは正常に更新されました"
+    User was successfully destroyed: "%{name}ユーザーは正常に削除されました"
     Failed to login: ログインに失敗しました
     Logged out: ログアウトしました
   enums:
