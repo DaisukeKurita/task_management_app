@@ -2,6 +2,7 @@ class Admin::UsersController < ApplicationController
   skip_before_action :login_required, only: %i[ new create ]
   before_action :set_user, only: %i[ edit update show destroy ]
   before_action :back_when_logged_in, only: %i[ new create ]
+  before_action :require_admin
 
   def index
     @users = User.all
@@ -37,8 +38,11 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
-    redirect_to admin_users_path, notice: t('notice.User was successfully destroyed', name: @user.user_name )
+    if @user.destroy
+      redirect_to admin_users_path, notice: t('notice.User was successfully destroyed', name: @user.user_name )
+    else
+      redirect_to admin_users_path, notice: t('notice.The process was rejected because the administrator becomes 0')
+    end
   end
 
   private
@@ -52,5 +56,9 @@ class Admin::UsersController < ApplicationController
 
   def back_when_logged_in
     redirect_to tasks_path if logged_in?
+  end
+
+  def require_admin
+    redirect_to tasks_path, notice: t('notice.Only the administrator can access it') unless current_user.admin?
   end
 end

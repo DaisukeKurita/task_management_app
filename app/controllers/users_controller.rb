@@ -3,10 +3,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show destroy ]
   before_action :back_when_logged_in, only: %i[ new create ]
 
-  def index
-    @users = User.all
-  end
-
   def new
     @user = User.new
   end
