@@ -34,14 +34,14 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
-    redirect_to tasks_path unless @user.id == current_user.id
   end
 
   def destroy
     if @user.destroy
       redirect_to admin_users_path, notice: t('notice.User was successfully destroyed', name: @user.user_name )
     else
-      redirect_to admin_users_path, notice: t('notice.The process was rejected because the administrator becomes 0')
+      @users = User.includes(:tasks)
+      render :index
     end
   end
 
