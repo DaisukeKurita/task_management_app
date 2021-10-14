@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   private
   def one_administrator_required
+    errors.add :admin
     throw(:abort) if User.where(admin: true).length == 1 && self.admin?
   end
 

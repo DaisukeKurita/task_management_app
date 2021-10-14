@@ -1,4 +1,16 @@
 <h1><%= t('view.User list') %></h1>
+
+<% if @user.present? %>
+<div id="error_explantion">
+  <h2><%= @user.errors.count %><%= t('view.error') %><%= @user.user_name %><%= t('view.prohibited this user from being saved') %></h2>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
 <br><br>
 <table>
   <tr>
