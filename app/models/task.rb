@@ -4,6 +4,8 @@ class Task < ApplicationRecord
   validates :status, presence: true
   validates :priority, presence: true
   belongs_to :user
+  has_many :labellings, dependent: :destroy
+  has_many :labels, through: :labellings
 
   enum status: {
     not_started_yet: 0,
