@@ -22,11 +22,11 @@
   </div>
   <div class="user_password">
     <%= f.label :password %>
-    <%= f.text_field :password, class: 'form-control' %>
+    <%= f.password_field :password, class: 'form-control' %>
   </div>
   <div class="user_confirmation">
     <%= f.label :password_confirmation %>
-    <%= f.text_field :password_confirmation, class: 'form-control' %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
   </div>
   <br>
   <%= f.submit t('view.Create my account') %>
