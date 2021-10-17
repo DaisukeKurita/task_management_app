@@ -207,14 +207,18 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   view:
+    Task management will increase your work productivity: タスク管理で仕事の生産性がアップするよ
     Tasks index: タスク一覧
     Task name search: タスク名検索
     Status search: ステータス検索
+    Task creator: タスク作成者
+    Delete account: アカウントを削除
     Sort by expiration date: 終了期限でソートする
     Task name: タスク名
     Task detail: タスク詳細
     Search: 検索
-    Sign up: 新規登録 
+    Sign up: 新規登録
+    User edit: ユーザーの編集
     expired_at: 終了期限
     status: ステータス
     priority: 優先順位
@@ -224,13 +228,37 @@ ja:
     Create a new task: 新しくタスクを作成する
     Create a task: タスクを作成する
     Edit task: タスクの編集
-    Return to task list screen: タスク一覧画面に戻る
-    error: エラー
+    Return to task list screen: タスク一覧画面へ
+    error: 件のエラー
     prohibited this task from being saved: このタスクを禁止しました
+    prohibited this task from being saved: このタスクを禁止しました
+    page of: "%{name}のページ"
+    email: "メールアドレス:%{email}"
+    prohibited this user from being saved: ユーザー登録を禁止しました
+    Create my account: アカウントを作成する
+    To login screen: ログイン画面へ
+    To new user registration screen: ユーザーの新規登録画面へ
+    To user list screen: ユーザー一覧画面へ
+    Log in: ログイン
+    Email: メールアドレス
+    Password: パスワード
+    User list: ユーザー一覧
+    New user registration: ユーザー新規登録
+    User name: ユーザー名
+    Number of user tasks: ユーザータスク数
+    Administrator: 管理者
   notice:
     Task was successfully created: タスクは正常に作成されました
     Task was successfully updated: タスクは正常に更新されました
     Task was successfully destroyed: タスクは正常に削除されました
+    User was successfully created: "%{name}ユーザーは正常に作成されました"
+    User was successfully updated: "%{name}ユーザーは正常に更新されました"
+    User was successfully destroyed: "%{name}ユーザーは正常に削除されました"
+    User was successfully destroyed: "%{name}ユーザーは正常に削除されました"
+    The process was rejected because the administrator becomes 0: 管理者が0になってしまうため処理を拒否しました
+    Failed to login: ログインに失敗しました
+    Logged out: ログアウトしました
+    Only the administrator can access it: 管理者以外はアクセスできません
   enums:
     task:
       status:

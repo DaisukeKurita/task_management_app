@@ -1,0 +1,38 @@
+<%= form_with( model: [:admin, @user], local:true ) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explantion">
+      <h2><%= @user.errors.count %><%= t('view.error') %><%= @user.user_name %><%= t('view.prohibited this user from being saved') %></h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="user_name">
+    <%= f.label :user_name %>
+    <%= f.text_field :user_name, class: 'form-control' %>
+  </div>
+  <div class="user_email">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+  <br>
+  <div class="admin">
+    <%= f.label :admin %>
+    <%= f.check_box :admin %>
+  </div>
+  <div class="user_password">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+  <div class="user_confirmation">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+  <br>
+  <%= f.submit t('view.Create my account') %>
+<% end %>
+<br>
+<%= link_to t('view.To login screen'), new_session_path %>

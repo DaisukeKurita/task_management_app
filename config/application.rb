@@ -17,6 +17,8 @@ module TaskManagementApp
                        routing_specs: false,
                        controller_specs: false,
                        request_specs: false
+                       g.assets false
+                       g.helper false
     end
   end
 end
