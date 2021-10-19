@@ -1,6 +1,7 @@
 <h1><%= t('view.User list') %></h1>
 
 <%= link_to t('view.New user registration'), new_admin_user_path, class: 'btn btn-primary' %>
+<%= link_to t('view.Create a new label'), new_label_path, class: 'btn btn-success' %>
 
 <% if @user.present? %>
 <div id="error_explantion">
