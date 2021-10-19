@@ -59,6 +59,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:task_name, :task_detail, :expired_at, :status, :priority, :user_id)
+    params.require(:task).permit(:task_name, :task_detail, :expired_at, :status, :priority, :user_id, { label_ids: [] })
+    binding.irb
   end
 end
