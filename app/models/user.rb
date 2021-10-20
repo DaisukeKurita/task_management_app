@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }
   before_destroy :one_administrator_required
   has_many :tasks, dependent: :destroy
+  has_many :labels
   # after_update :admin_update_exist
   before_update :admin_update_exist
 

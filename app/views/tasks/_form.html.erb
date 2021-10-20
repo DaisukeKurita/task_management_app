@@ -16,7 +16,7 @@
   </div>
   <br>
 
-  <% Label.all.each do |label| %>
+  <% current_user.labels.each do |label| %>
     <% if action_name == 'new' %>
       <%= form.check_box :label_ids, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false }, label[:id] %>
       <%= label.label_name %>
