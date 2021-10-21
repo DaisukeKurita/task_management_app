@@ -6,6 +6,7 @@ class Task < ApplicationRecord
   belongs_to :user
   has_many :labellings, dependent: :destroy
   has_many :labels, through: :labellings
+  # 自動的に推論指定いるので、source:と書く必要はない
 
   enum status: {
     not_started_yet: 0,
