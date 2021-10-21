@@ -2,23 +2,37 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
 
   def index
-    if params[:sort_expired]
-      @tasks = current_user.tasks.end_deadline_descending.page(params[:page]).per(5)
-    elsif params[:sort_priority]
-      @tasks = current_user.tasks.highest_priority.page(params[:page]).per(5)
-    elsif params[:task].present?
-      if params[:task][:search].present? && params[:task][:status].present?
-        @tasks = current_user.tasks.search_task_name(params[:task][:search]).search_status(params[:task][:status]).page(params[:page]).per(5)
+    @tasks = current_user.tasks.creation_date_descending.page(params[:page]).per(5)
+    @tasks = current_user.tasks.end_deadline_descending.page(params[:page]).per(5) if params[:sort_expired] 
+    @tasks = current_user.tasks.highest_priority.page(params[:page]).per(5) if params[:sort_priority]
+    if params[:task].present?
+      if params[:task][:search].present? && params[:task][:status].present? && params[:task][:label_id].present?
+        @tasks = current_user.tasks.search_task_name(params[:task][:search]).search_status(params[:task][:status]).label_search(params[:task][:label_id]).page(params[:page]).per(5)
       elsif params[:task][:search].present?
         @tasks = current_user.tasks.search_task_name(params[:task][:search]).page(params[:page]).per(5)
       elsif params[:task][:status].present?
         @tasks = current_user.tasks.search_status(params[:task][:status]).page(params[:page]).per(5)
-      else
-        @tasks = current_user.tasks.creation_date_descending.page(params[:page]).per(5)
+      elsif params[:task][:label_id].present?
+        @tasks = current_user.tasks.joins(:labels).search_label(params[:task][:label_id]).page(params[:page]).per(5)
       end
-    else
-      @tasks = current_user.tasks.creation_date_descending.page(params[:page]).per(5)
     end
+    # if params[:sort_expired]
+    #   @tasks = current_user.tasks.end_deadline_descending.page(params[:page]).per(5)
+    # elsif params[:sort_priority]
+    #   @tasks = current_user.tasks.highest_priority.page(params[:page]).per(5)
+    # elsif params[:task].present?
+    #   if params[:task][:search].present? && params[:task][:status].present?
+    #     @tasks = current_user.tasks.search_task_name(params[:task][:search]).search_status(params[:task][:status]).page(params[:page]).per(5)
+    #   elsif params[:task][:search].present?
+    #     @tasks = current_user.tasks.search_task_name(params[:task][:search]).page(params[:page]).per(5)
+    #   elsif params[:task][:status].present?
+    #     @tasks = current_user.tasks.search_status(params[:task][:status]).page(params[:page]).per(5)
+    #   else
+    #     @tasks = current_user.tasks.creation_date_descending.page(params[:page]).per(5)
+    #   end
+    # else
+    #   @tasks = current_user.tasks.creation_date_descending.page(params[:page]).per(5)
+    # end
   end
 
   def new
