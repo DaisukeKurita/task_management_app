@@ -14,6 +14,7 @@
 <table>
   <tr>
     <th><%= t('view.Task name') %></th>
+    <th><%= t('view.Label name') %></th>
     <th><%= t('view.Task detail') %></th>
     <th><%= link_to t('view.expired_at'), tasks_path(sort_expired: "true") %></th>
     <th><%= t('view.status') %></th>
@@ -23,6 +24,11 @@
   <% @tasks.each do |task| %>
     <tr>
       <td><%= task.task_name %></td>
+      <td>
+        <% task.labels.each do |label| %>
+          <%= label.label_name %>
+        <% end %>
+      </td>
       <td><%= task.task_detail %></td>
       <td><%= l task.expired_at, format: :long %></td>
       <td><%= task.status_i18n %></td>
