@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Label name:</strong>
+  <strong><%= t('view.Label name') %>:</strong>
   <%= @label.label_name %>
 </p>
 
-<%= link_to 'Edit', edit_label_path(@label) %> |
-<%= link_to 'Back', labels_path %>
+<%= link_to t('view.To label edit screen'), edit_label_path(@label) %> |
+<%= link_to t('view.To label list screen'), labels_path %>

@@ -1,6 +1,6 @@
-<h1>Editing Label</h1>
+<h1><%= t('view.Label edit screen') %></h1>
 
 <%= render 'form', label: @label %>
 
-<%= link_to 'Show', @label %> |
-<%= link_to 'Back', labels_path %>
+<%= link_to t('view.To label show screen'), @label %> |
+<%= link_to t('view.To label list screen'), labels_path %>

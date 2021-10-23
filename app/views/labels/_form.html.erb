@@ -1,8 +1,8 @@
 <%= form_with(model: label, local: true) do |form| %>
   <% if label.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(label.errors.count, "error") %> prohibited this label from being saved:</h2>
-
+      <h2><%= label.errors.count %> <%= t('view.prohibited this label from being saved') %></h2>
+ 
       <ul>
       <% label.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -13,9 +13,9 @@
 
   <div class="field">
     <%= form.label :label_name %>
-    <%= form.text_field :label_name %>
+    <%= form.text_field :label_name, class: 'form-control' %>
   </div>
-
+  <br>
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -236,6 +236,7 @@ ja:
     page of: "%{name}のページ"
     email: "メールアドレス:%{email}"
     prohibited this user from being saved: ユーザー登録を禁止しました
+    prohibited this label from being saved: ラベルの登録を禁止しました
     Create my account: アカウントを作成する
     To login screen: ログイン画面へ
     To new user registration screen: ユーザーの新規登録画面へ
@@ -249,6 +250,13 @@ ja:
     User name: ユーザー名
     Number of user tasks: ユーザータスク数
     Administrator: 管理者
+    To label list screen: ラベル一覧画面へ
+    To label edit screen: ラベル編集画面へ
+    To label show screen: ラベル詳細画面へ
+    New label registration: ラベル新規登録
+    Label list screen: ラベル一覧画面
+    Label edit screen: ラベル編集画面
+    Label name: ラベル名
   notice:
     Task was successfully created: タスクは正常に作成されました
     Task was successfully updated: タスクは正常に更新されました
