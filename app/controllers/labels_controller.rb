@@ -24,7 +24,7 @@ class LabelsController < ApplicationController
     @label = current_user.labels.new(label_params)
     respond_to do |format|
       if @label.save
-        format.html { redirect_to @label, notice: "Label was successfully created." }
+        format.html { redirect_to @label, notice: t('notice.Label was successfully created') }
         format.json { render :show, status: :created, location: @label }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,7 +37,7 @@ class LabelsController < ApplicationController
   def update
     respond_to do |format|
       if @label.update(label_params)
-        format.html { redirect_to @label, notice: "Label was successfully updated." }
+        format.html { redirect_to @label, notice: t('notice.Label was successfully updated') }
         format.json { render :show, status: :ok, location: @label }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,7 +50,7 @@ class LabelsController < ApplicationController
   def destroy
     @label.destroy
     respond_to do |format|
-      format.html { redirect_to labels_url, notice: "Label was successfully destroyed." }
+      format.html { redirect_to labels_url, notice: t('notice.Label was successfully destroyed') }
       format.json { head :no_content }
     end
   end

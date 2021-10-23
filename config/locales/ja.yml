@@ -257,6 +257,7 @@ ja:
     Label list screen: ラベル一覧画面
     Label edit screen: ラベル編集画面
     Label name: ラベル名
+    Are you sure you want to delete it?: 本当に削除してよろしいでしょうか？
   notice:
     Task was successfully created: タスクは正常に作成されました
     Task was successfully updated: タスクは正常に更新されました
@@ -265,6 +266,9 @@ ja:
     User was successfully updated: "%{name}ユーザーは正常に更新されました"
     User was successfully destroyed: "%{name}ユーザーは正常に削除されました"
     User was successfully destroyed: "%{name}ユーザーは正常に削除されました"
+    Label was successfully created: ラベルが正常に作成されました
+    Label was successfully updated: ラベルが正常に更新されました
+    Label was successfully destroyed: ラベルが正常に削除されました
     The process was rejected because the administrator becomes 0: 管理者が0になってしまうため処理を拒否しました
     Failed to login: ログインに失敗しました
     Logged out: ログアウトしました
