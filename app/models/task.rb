@@ -25,4 +25,8 @@ class Task < ApplicationRecord
     scope :search_task_name, -> (params) { where('task_name LIKE ?', "%#{params}%")}
     scope :search_status, -> (params) { where(status: "#{params}")}
     scope :search_label, -> (params) { where(labels: {id: "#{params}"})}
+    # scope :search_label_two, -> (params) { where(label_id: "#{params}")}
+    def self.search_label_two(params)
+      where(id: Labelling.where(label_id: "#{params}").pluck(:task_id))
+    end
 end

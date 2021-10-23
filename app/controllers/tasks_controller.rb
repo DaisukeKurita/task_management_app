@@ -19,7 +19,10 @@ class TasksController < ApplicationController
       elsif params[:task][:status].present? # ステータス検索
         @tasks = current_user.tasks.search_status(params[:task][:status]).page(params[:page]).per(5)
       elsif params[:task][:label_id].present? # ラベル検索
-        @tasks = current_user.tasks.joins(:labels).search_label(params[:task][:label_id]).page(params[:page]).per(5)
+        @tasks =  Task.search_label_two(params[:task][:label_id]).page(params[:page]).per(5)
+        # @tasks =  Task.where(id: Labelling.where(label_id: (params[:task][:label_id])).pluck(:task_id)).page(params[:page]).per(5)
+        # binding.irb
+        # @tasks = current_user.tasks.joins(:labels).search_label(params[:task][:label_id]).page(params[:page]).per(5)
       end
     end
   end
