@@ -19,14 +19,18 @@ class Task < ApplicationRecord
     low: 2
     }
 
-    scope :creation_date_descending, -> {order(created_at: :desc)}
-    scope :end_deadline_descending, -> {order(expired_at: :desc)}
-    scope :highest_priority, -> {order(priority: :asc)}
+    # scope :creation_date_descending, -> {order(created_at: :desc)}
+    # scope :end_deadline_descending, -> {order(expired_at: :desc)}
+    # scope :highest_priority, -> {order(priority: :asc)}
     scope :search_task_name, -> (params) { where('task_name LIKE ?', "%#{params}%")}
     scope :search_status, -> (params) { where(status: "#{params}")}
     scope :search_label, -> (params) { where(labels: {id: "#{params}"})}
     # scope :search_label_two, -> (params) { where(label_id: "#{params}")}
-    def self.search_label_two(params)
-      where(id: Labelling.where(label_id: "#{params}").pluck(:task_id))
-    end
+    scope :search_labels, -> (params) {
+      task_ids = Labelling.where(label_id: params).pluck(:task_id)
+      where(id: task_ids)
+    }
+    # def self.search_label_two(params)
+    #   where(id: Labelling.where(label_id: "#{params}").pluck(:task_id))
+    # end
 end
