@@ -5,7 +5,9 @@
   <%= form.text_field :search %>
   <%= form.label :status, t('view.Status search') %>
   <%= form.select :status, Task.statuses_i18n.keys.map{|k| [I18n.t("enums.task.status.#{k}"), k]}, {include_blank: true} %>
+  <%= form.label :label_id, t('view.Label search') %>
   <%= form.select :label_id, current_user.labels.collect { |label| [ label.label_name, label.id ] }, include_blank: true %>
+  <%# 基本的にレイアウトを崩してしまうモノ（この場合はラベル）は、詳細画面にのみ表示されるようにしましょう %>
   <%= form.submit t('view.Search') %>
 <% end %>
 <br>
