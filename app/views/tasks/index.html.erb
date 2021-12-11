@@ -1,18 +1,23 @@
 <h1><%= t('view.Tasks index') %></h1>
 
-<%= form_with url: tasks_path, scope: :task, method: :get, local: true do |form| %>
-    <%= form.label :search, t('view.Task name search') %>
-    <%= form.text_field :search %>
-    <%= form.label :status, t('view.Status search') %>
-    <%= form.select :status, Task.statuses_i18n.keys.map{|k| [I18n.t("enums.task.status.#{k}"), k]}, {include_blank: true} %>
-    <%= form.submit t('view.Search') %>
+<%= form_with url: tasks_path, method: :get, local: true do |form| %>
+  <%= form.label :search, t('view.Task name search') %>
+  <%= form.text_field :search %>
+  <%= form.label :status, t('view.Status search') %>
+  <%= form.select :status, Task.statuses_i18n.keys.map{|k| [I18n.t("enums.task.status.#{k}"), k]}, {include_blank: true} %>
+  <%= form.label :label_id, t('view.Label search') %>
+  <%= form.select :label_id, current_user.labels.collect { |label| [ label.label_name, label.id ] }, include_blank: true %>
+  <%# 基本的にレイアウトを崩してしまうモノ（この場合はラベル）は、詳細画面にのみ表示されるようにしましょう %>
+  <%= form.submit t('view.Search') %>
 <% end %>
 <br>
-<%= link_to t('view.Sign up'), new_task_path, class: 'btn btn-primary' %>
+<%= link_to t('view.Create a new task'), new_task_path, class: 'btn btn-primary' %>
+<%= link_to t('view.Create a new label'), new_label_path, class: 'btn btn-success' %>
 <br><br>
 <table>
   <tr>
     <th><%= t('view.Task name') %></th>
+    <th><%= t('view.Label name') %></th>
     <th><%= t('view.Task detail') %></th>
     <th><%= link_to t('view.expired_at'), tasks_path(sort_expired: "true") %></th>
     <th><%= t('view.status') %></th>
@@ -22,6 +27,11 @@
   <% @tasks.each do |task| %>
     <tr>
       <td><%= task.task_name %></td>
+      <td>
+        <% task.labels.each do |label| %>
+          <%= label.label_name %>
+        <% end %>
+      </td>
       <td><%= task.task_detail %></td>
       <td><%= l task.expired_at, format: :long %></td>
       <td><%= task.status_i18n %></td>

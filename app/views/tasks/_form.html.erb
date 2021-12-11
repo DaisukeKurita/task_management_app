@@ -14,6 +14,18 @@
     <%= form.label :task_name %>
     <%= form.text_field :task_name, class: 'form-control' %>
   </div>
+  <br>
+
+  <% current_user.labels.each do |label| %>
+    <% if action_name == 'new' %>
+      <%= form.check_box :label_ids, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false }, label[:id] %>
+      <%= label.label_name %>
+    <% elsif action_name == 'edit' %>
+      <%= form.check_box :label_ids, { multiple: true, checked: @task.label_ids.include?(label.id), disabled: label[:disabled], include_hidden: false }, label[:id] %>
+      <%= label.label_name %>
+    <% end %>
+  <% end %>
+  
   <div class="task_detail">
     <%= form.label :task_detail %>
     <%= form.text_area :task_detail, class: 'form-control' %>

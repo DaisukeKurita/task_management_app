@@ -4,6 +4,14 @@
     <td><%= @task.task_name %></td>
   </tr>
   <tr>
+    <th><%= t('view.Label name') %>:</th>
+    <td>
+      <% @task.labels.each do |label| %>
+        <%= label.label_name %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
     <th><%= t('view.Task detail') %>:</th>
     <td><%= @task.task_detail %></td>
   </tr>

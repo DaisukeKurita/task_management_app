@@ -37,5 +37,5 @@ FactoryBot.define do
     expired_at { '2021-11-25 17:06:00' }
     status { 'under_start' }
     priority { 'low' }
-  end
+  end 
 end

@@ -16,3 +16,5 @@ ja:
         admin: 管理者権限
         password: パスワード
         password_confirmation: パスワード確認
+      label:
+        label_name: ラベル名
